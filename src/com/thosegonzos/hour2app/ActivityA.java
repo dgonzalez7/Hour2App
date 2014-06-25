@@ -20,12 +20,21 @@ public class ActivityA extends Activity {
 		TextView t = (TextView)findViewById(R.id.textView1);
 		t.setText("This is Activity A");
 		Button b = (Button)findViewById(R.id.button1);
+		
 		b.setOnClickListener(new View.OnClickListener() 
 		{
 			public void onClick(View v) 
 			{
 				Intent intent = new Intent(ActivityA.this, ActivityB.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				
+				Bundle b = new Bundle();
+				b.putString("greeting", "Hello");
+				intent.putExtra("greetingBundle", b);
+				intent.putExtra("message", "World!");
+				intent.putExtra("showAll", true);
+				intent.putExtra("numItems", 5);
+				
 				startActivity(intent);
 			}
 		} );
