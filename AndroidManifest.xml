@@ -26,6 +26,10 @@
             android:name="com.thosegonzos.hour2app.ActivityB"
             android:label="Activity B" >
         </activity>
+                <activity
+            android:name="com.thosegonzos.hour2app.ActivityC"
+            android:label="Activity C" >
+        </activity>
     </application>
 
 </manifest>

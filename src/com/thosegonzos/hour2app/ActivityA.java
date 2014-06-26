@@ -38,5 +38,28 @@ public class ActivityA extends Activity {
 				startActivity(intent);
 			}
 		} );
+		
+		Button getData = (Button)findViewById(R.id.button2);
+		getData.setOnClickListener(new View.OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				Intent intent = new Intent(ActivityA.this, ActivityC.class);
+				startActivityForResult(intent, 0);
+			}
+		} );
+		
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		if (requestCode == 0 && resultCode == Activity.RESULT_OK)
+		{
+			String enteredData = data.getStringExtra("Data");
+			TextView t = (TextView)findViewById(R.id.textView1);
+			t.setText(enteredData);
+		}
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 }

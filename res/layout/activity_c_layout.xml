@@ -10,25 +10,34 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="40dp"
         android:text="@string/hello_world" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:ems="10" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="24dp"
-        android:text="Go" />
+        android:layout_below="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="Send Data" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/button1"
-        android:layout_marginTop="42dp"
-        android:text="Get Data" />
+        android:layout_marginTop="40dp"
+        android:text="Cancel" />
 
 </RelativeLayout>
