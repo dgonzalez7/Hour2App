@@ -16,16 +16,29 @@ public class ActivityB extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_layout);
 		
+		TextView t = (TextView)findViewById(R.id.textView1);
+		
 		Intent intent = getIntent();
 		
-		Bundle bundle = intent.getBundleExtra("greetingBundle");
-		String greeting = bundle.getString("greeting");
-		String message = intent.getStringExtra("message");
-		Boolean showAll = intent.getBooleanExtra("showAll", false);
-		int numItems = intent.getIntExtra("numItems", 0);
-		
-		TextView t = (TextView)findViewById(R.id.textView1);
-		t.setText("This is Activity B: " + greeting + " " + message + " " + showAll + " " + numItems);
+		if (intent != null)
+		{
+			String action = intent.getAction();
+	        String type = intent.getType();
+	        if (Intent.ACTION_SEND.equals(action) && "text/plain".equals(type)) 
+	        {
+	               t.setText(intent.getStringExtra(Intent.EXTRA_TEXT));
+	        } 
+	        else
+	        {
+	        	Bundle bundle = intent.getBundleExtra("greetingBundle");
+	        	String greeting = bundle.getString("greeting");
+	        	String message = intent.getStringExtra("message");
+	        	Boolean showAll = intent.getBooleanExtra("showAll", false);
+	        	int numItems = intent.getIntExtra("numItems", 0);
+	    		t.setText("This is Activity B: " + greeting + " " + message + " " + showAll + " " + numItems);
+	        }
+		}
+
 		Button b = (Button)findViewById(R.id.button1);
 		
 		b.setOnClickListener(new View.OnClickListener() 
